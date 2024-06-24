@@ -2,23 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>goit-js-hw-12</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load ="partials/header.html" />
+    <header></header>
+    <main>
+      <form action="" class="image-search-form">
+        <input
+          type="search"
+          class="image-search-input"
+          id="image-search-input"
+          name="userData"
+          placeholder="Search images..."
+        />
+        <button type="submit" class="image-search-btn">Search</button>
+      </form>
 
-    <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
-    </section>
+      <ul class="image-gallery"></ul>
 
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
+      <span class="image-loader">Loading images, please wait...</span>
 
+      <button type="button" class="load-more-btn hidden">Load more</button>
+    </main>
+
+    <footer></footer>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

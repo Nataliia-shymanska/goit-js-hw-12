@@ -5,21 +5,148 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.image-search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+  margin-top: 36px;
 }
+
+.image-search-input {
+  width: 272px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  background: #fff;
+  padding: 8px 16px;
+}
+
+.image-search-input:hover,
+.image-search-input:focus {
+  border-color: #000;
+}
+
+.image-search-input::placeholder {
+  letter-spacing: 0.04em;
+  color: #808080;
+}
+
+.image-search-btn {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background: #4e75ff;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.image-search-btn:hover {
+  background: #6c8cff;
+}
+
+.image-gallery {
+  width: 1128px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+.image-gallery-item {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 27px * 2) / 3);
+  border: 1px solid #808080;
+  transition: 1000ms;
+}
+
+.image-gallery-item:hover,
+.image-gallery-item:focus {
+  box-shadow: 0px 0px 8px 2px rgba(46, 13, 95, 0.353);
+  scale: 1.1;
+  border-radius: 8px;
+}
+
+.img-dscr {
+  display: flex;
+  padding: 4px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-data {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+  height: 152px;
+  object-fit: cover;
+  transition: 1000ms;
+}
+
+.img:hover,
+.img:focus {
+  cursor: zoom-in;
+  border-radius: 8px 8px 0 0;
+}
+
+.img-data-title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.img-data-numbers {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.image-loader {
+  display: none;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  margin-top: 32px;
+}
+
+.load-more-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 32px auto 44px auto;
+}
+
+.hidden {
+  display: none;
+}
+

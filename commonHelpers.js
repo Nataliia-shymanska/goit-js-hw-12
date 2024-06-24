@@ -1,0 +1,23 @@
+import{a as L,S,i as n}from"./assets/vendor-c493984e.js";(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))c(t);new MutationObserver(t=>{for(const a of t)if(a.type==="childList")for(const d of a.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&c(d)}).observe(document,{childList:!0,subtree:!0});function o(t){const a={};return t.integrity&&(a.integrity=t.integrity),t.referrerPolicy&&(a.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?a.credentials="include":t.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function c(t){if(t.ep)return;t.ep=!0;const a=o(t);fetch(t.href,a)}})();document.querySelector(".image-search-form"),document.querySelector(".image-search-input"),document.querySelector(".image-search-btn"),document.querySelector(".image-gallery");function I(e){return`<li class="image-gallery-item">
+  <a class="img-link" href=${e.largeImageURL} onclick="event.preventDefault()"><img class="img" src=${e.webformatURL} alt=${e.tags}></img></a>
+   <ul class="img-dscr">
+      <li class="img-data">
+        <p class="img-data-title">Likes</p>
+        <p class="img-data-numbers">${e.likes}</p>
+      </li>
+      <li class="img-data">
+        <p class="img-data-title">Views</p>
+        <p class="img-data-numbers">${e.views}</p>
+      </li>
+      <li class="img-data">
+        <p class="img-data-title">Comments</p>
+        <p class="img-data-numbers">${e.comments}</p>
+      </li>
+      <li class="img-data">
+        <p class="img-data-title">Downloads</p>
+        <p class="img-data-numbers">${e.downloads}</p>
+      </li>
+    </ul>
+</li>`}function p(e){return e.map(I).join(`
+`)}async function h(e,i,o){try{return(await L.create({baseURL:"https://pixabay.com"}).get("/api/",{params:{key:"44319460-4af2fb7eeaa8b0840083a4a49",q:e,image_type:"photo",orientation:"horizontal",safesearch:!0,page:i,per_page:o}})).data}catch{console.log(enterError("","api get error"))}}const r={imageSearchForm:document.querySelector(".image-search-form"),imageSearchInput:document.querySelector(".image-search-input"),submitButton:document.querySelector(".image-search-btn"),imageList:document.querySelector(".image-gallery"),loader:document.querySelector(".image-loader"),more:document.querySelector(".load-more-btn"),upBtn:document.querySelector(".up-button")};let l,s=1,f=1;const g=15,y=new S(".image-gallery-item a",{captions:!0,captionSelector:"img",captionType:"attr",captionsData:"alt",captionPosition:"bottom",captionDelay:250,animationSpeed:300,widthRatio:1,heightRatio:.95,disableRightClick:!0});r.imageSearchForm.addEventListener("submit",async e=>{if(e.preventDefault(),l=e.target.elements.userData.value.trim(),s=1,!l)return r.imageList.innerHTML="",m(),u(),n.info({message:"You need to enter search request!",position:"topRight",transitionIn:"bounceInDown",transitionOut:"fadeOutDown"});w(),m();try{const i=await h(l,s,g);if(i.hits.length===0)return r.imageList.innerHTML="",u(),n.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight",transitionIn:"bounceInDown",transitionOut:"fadeOutDown"});const o=p(i.hits);r.imageList.innerHTML=o,f=Math.ceil(i.totalHits/g),y.refresh(),b()}catch{n.error({message:"An error occurred. Please try again later.",position:"topRight",transitionIn:"bounceInDown",transitionOut:"fadeOutDown"})}finally{u()}e.target.reset()});r.more.addEventListener("click",async()=>{s++,w(),m();try{const e=await h(l,s,g),i=p(e.hits);r.imageList.insertAdjacentHTML("beforeend",i),q(),y.refresh(),b()}catch{n.error({message:"An error occurred. Please try again later.",position:"topRight",transitionIn:"bounceInDown",transitionOut:"fadeOutDown"})}finally{u()}});function b(){s>=f?(m(),n.info({message:"We're sorry, but you've reached the end of search results.",position:"topRight",transitionIn:"bounceInDown",transitionOut:"fadeOutDown"})):D()}function q(){const e=r.imageList.children[0].getBoundingClientRect().height;window.scrollBy({top:e*2,behavior:"smooth"})}function w(){r.loader.style.display="block"}function u(){r.loader.style.display="none"}function D(){r.more.style.display="block"}function O(){r.imageSearchForm.scrollIntoView({behavior:"smooth"}),r.upBtn.setAttribute("hidden","")}function m(){r.more.style.display="none"}function v(){window.scrollY>=50?r.upBtn.removeAttribute("hidden"):r.upBtn.setAttribute("hidden","")}window.addEventListener("scroll",v);r.upBtn.addEventListener("click",O);
+//# sourceMappingURL=commonHelpers.js.map
